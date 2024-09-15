@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMania - Em Breve</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins';
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .loading-spinner {
+            margin-top: 20px;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://via.placeholder.com/150" alt="Logo XMania" class="logo fade-in">
+        <h1 class="fade-in">A XMania está chegando!</h1>
+        <p class="fade-in">Estamos trabalhando para proporcionar a melhor experiência para você.</p>
+        <div id="countdown" class="countdown fade-in"></div>
+        <div class="loading-spinner fade-in">
+            <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Carregando...</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para atualizar o contador regressivo
+        function updateCountdown() {
+            const endDate = new Date('2024-10-01T00:00:00'); // Data de inauguração
+            const now = new Date();
+            const timeDiff = endDate - now;
+
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = 
+                `${days} Dias ${hours} Horas ${minutes} Minutos ${seconds} Segundos`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
