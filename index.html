@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +15,11 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Garante que a rolagem não apareça */
+            overflow: hidden;
         }
 
         .container {
-            height: calc(100vh - 50px); /* Ajusta a altura da container para deixar espaço para o rodapé */
+            height: calc(100vh - 50px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -46,21 +47,26 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
-        /* Estilo para o canvas de partículas */
+
         #particles-js {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Coloca o canvas atrás do conteúdo */
+            z-index: 0;
         }
 
-        /* Estilo para o rodapé */
+
         footer {
             position: absolute;
             bottom: 0;
@@ -73,12 +79,13 @@
         }
     </style>
 </head>
+
 <body>
-    <!-- Elemento para o efeito de partículas -->
+
     <div id="particles-js"></div>
 
     <div class="container">
-  
+
         <h1 class="fade-in">A XMania está chegando!</h1>
         <p class="fade-in">Estamos trabalhando para proporcionar a melhor experiência para você.</p>
         <div id="countdown" class="countdown fade-in"></div>
@@ -89,10 +96,10 @@
         </div>
     </div>
 
-    <!-- Incluindo o script Particles.js -->
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // Inicializando Particles.js
+
         particlesJS('particles-js', {
             "particles": {
                 "number": {
@@ -171,10 +178,9 @@
             "retina_detect": true
         });
 
-        // Função para atualizar o contador regressivo
+
         function updateCountdown() {
-            const endDate = new Date('2024-09-22T00:00:00'); // Data de inauguração
-            const now = new Date();
+            const endDate = new Date('2024-09-22T00:00:00');
             const timeDiff = endDate - now;
 
             const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -182,16 +188,17 @@
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerText = 
+            document.getElementById('countdown').innerText =
                 `${days} Dias ${hours} Horas ${minutes} Minutos ${seconds} Segundos`;
         }
 
         setInterval(updateCountdown, 1000);
     </script>
 
-    <!-- Rodapé com a mensagem de desenvolvimento -->
+
     <footer>
         Desenvolvido por Marcos Guerra
     </footer>
 </body>
+
 </html>
