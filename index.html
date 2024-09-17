@@ -56,7 +56,6 @@
             }
         }
 
-
         #particles-js {
             position: absolute;
             top: 0;
@@ -65,7 +64,6 @@
             height: 100%;
             z-index: 0;
         }
-
 
         footer {
             position: absolute;
@@ -85,7 +83,6 @@
     <div id="particles-js"></div>
 
     <div class="container">
-
         <h1 class="fade-in">A XMania está chegando!</h1>
         <p class="fade-in">Estamos trabalhando para proporcionar a melhor experiência para você.</p>
         <div id="countdown" class="countdown fade-in"></div>
@@ -96,10 +93,8 @@
         </div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-
         particlesJS('particles-js', {
             "particles": {
                 "number": {
@@ -178,8 +173,8 @@
             "retina_detect": true
         });
 
-
         function updateCountdown() {
+            const now = new Date(); 
             const endDate = new Date('2024-09-22T00:00:00');
             const timeDiff = endDate - now;
 
@@ -192,9 +187,8 @@
                 `${days} Dias ${hours} Horas ${minutes} Minutos ${seconds} Segundos`;
         }
 
-        setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown, 1000); 
     </script>
-
 
     <footer>
         Desenvolvido por Marcos Guerra
